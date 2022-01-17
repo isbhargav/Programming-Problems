@@ -8,10 +8,13 @@ int main()
     {
         int n;
         string s;
+
         cin >> n;
         cin >> s;
+
         int i = 0;
         int cnt = 0;
+
         while (i < n)
         {
             if (s[i] == '.')

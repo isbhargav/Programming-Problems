@@ -1,31 +1,32 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
     int n;
-    while (cin >> n)
+    while(cin>>n)
     {
-        vector<pair<int, int>> a(n);
-        for (int i = 0; i < n; i++)
+        vector<pair<int,int> > prbs(n);
+        for(auto &p: prbs)
+            cin>>p.first;
+        for(auto &p: prbs)
+            cin>>p.second;
+
+        auto cmp = [](const pair<int,int> &a,const pair<int,int> &b){
+            return a.first+max(a.second,b.first)+b.second < b.first+max(b.second,a.first)+a.second ;
+        };
+
+        sort(prbs.begin(),prbs.end(),cmp);
+        int a_start=0;
+        int b_start=0;
+        for(auto &p: prbs)
         {
-            cin >> a[i].first;
+            a_start += p.first;
+            b_start = max(a_start,b_start);// B can only start work after A has finished and his previous work is finished
+            b_start+=p.second;
+
         }
-        for (int i = 0; i < n; i++)
-        {
-            cin >> a[i].second;
-        }
-        sort(a.begin(), a.end(), [](pair<int, int> &aa, pair<int, int> &bb) {
-            return aa.first + max(aa.second, bb.first) + bb.second < bb.first + max(bb.second, aa.first) + aa.second;
-        });
-        int ans = 0;
-        int start_time = 0;
-        for (int i = 0; i < n; i++)
-        {
-            start_time += a[i].first;
-            ans = max(start_time, ans); //this step is
-            ans += a[i].second;
-        }
-        cout << ans << endl;
+        cout<<b_start<<"\n";
+
     }
     return 0;
 }

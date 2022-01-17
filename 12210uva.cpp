@@ -19,9 +19,10 @@ int main()
             cin >> spin[i];
         }
         sort(bach.begin(), bach.end());
+        // if #Bach >= #Spin -> all of them get married for sure
         if (b <= s)
             cout << 0 << endl;
-        else
+        else// b-s will reamin unmarried and the youngest on will for sure be un married
             cout << b - s << " " << bach[0] << endl;
     }
     return 0;

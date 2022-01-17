@@ -22,10 +22,13 @@ int main()
         int coins = 0;
         while (i < n && j < m)
         {
+            // skip all till we find k[i]>=d[i]
             while (j < m && knights[j] < drg[i])
                 j++;
+            // if we reach the end break
             if (j == m)
                 break;
+            // Kill!!! add coin
             coins += knights[j];
             j++;
             i++;

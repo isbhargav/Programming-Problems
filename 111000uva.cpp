@@ -12,8 +12,11 @@ int main()
             cin >> bgs[i];
         }
         sort(bgs.begin(), bgs.end());
+
+        // this will store the count of duplicates
         unordered_map<int, int> dic;
-        int maxx = 0;
+        int maxx = 0; // max duplicate count we have
+
         for (auto x : bgs)
         {
             dic[x]++;
@@ -32,3 +35,11 @@ int main()
     }
     return 0;
 }
+
+
+/*
+ *  1 1 2 2 2 3 4 5
+ *  ______
+ *    ______  
+ *      ______
+ */

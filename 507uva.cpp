@@ -25,7 +25,7 @@ int main()
             sum += nums[k];
             if (sum >= ans)
             {
-                // if curee sum is greater than ans or if sum==ans then check len(K-prev_i)>len()
+                // choose the one with the longest and longest maximal segments, choose the segment that begins with the earliest stop
                 if (sum > ans || k-prev_i > j-i)
                 {
                     i = prev_i;
@@ -34,7 +34,7 @@ int main()
                 }
                 
             }
-
+            // Reset if current sum goes below zero
             if (sum < 0)
             {
                 prev_i = k + 1;
